@@ -5,42 +5,34 @@
 """
 
 # Импорт модуля для математических операций
-import math
+from math import sqrt, pow
 
 # Получаем коофиценты уравнения
-a = float(input("Введите значение коофицента a: "))
-b = float(input("Введите значение коофицента b: "))
-c = float(input("Введите значение коофицента c: "))
+a = float(input("Введите значение a: "))
+b = float(input("Введите значение b: "))
+c = float(input("Введите значение c: "))    
 
 # Решение уравнения
 if a == 0:
     if b == 0:
         if c == 0:
-            ans = "X принадлежит R"
+            print("X принадлежит R")
         else:
-            ans = "Нет корней"
+            print("Нет корней")
     else:
-        if c == 0:
-            ans = "x = 0"
-        else:
-            ans = f"x = {-c / b}"
+        x = -c/b
+        print(f"Уравнение имеет 1 корень: x={x}")
             
 else:
-    discriminant = b**2 - 4 * a * c  # Вычисляем дискриминант
-    print(f"Дискриминант: {discriminant}")
+    discriminant = pow(b, 2) - 4 * a * c
     if discriminant > 0:
         # Два различных действительных корня
-        x1 = (-b + math.sqrt(discriminant)) / (2 * a)
-        x2 = (-b - math.sqrt(discriminant)) / (2 * a)
-        ans = f"Уравнение имеет два корня: x1 = {x1}, x2 = {x2}"
+        x1 = (-b + sqrt(discriminant)) / (2 * a)
+        x2 = (-b - sqrt(discriminant)) / (2 * a)
+        print(f"Уравнение имеет два корня: x1 = {x1}, x2 = {x2}")
     elif discriminant == 0:
-        # Один действительный корень
+        # Один корень
         x = -b / (2 * a)
-        ans = f"Уравнение имеет один корень: x = {x}"
+        print(f"Уравнение имеет один корень: x = {x}")
     else:
-        # Корней нет в действительных числах
-        ans = "Уравнение не имеет действительных корней"
-
-# Функция выполнения программы
-print("Решение квадратного уравнения вида ax^2 + bx + c = 0")
-print(ans)
+        print("Уравнение не имеет действительных корней")
