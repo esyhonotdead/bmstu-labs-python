@@ -13,7 +13,7 @@
 наиболее удаленной стороны треугольника или ее продолжения
 """
 
-from math import sqrt, acos, degrees, cos
+from math import sqrt
 
 # Ввод координат точек
 x1, y1 = int(input("Введите точку x1: ")), int(input("Введите точку y1: ")) #A
