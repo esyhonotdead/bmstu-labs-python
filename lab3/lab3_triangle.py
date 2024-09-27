@@ -70,7 +70,7 @@ if AC - (AB + BC) < EXP and AB - (AC + BC) < EXP and BC - (AB + AC) < EXP:
     if ((line_equation1 >= 0 and line_equation2 >= 0 and line_equation3 >= line_equation3) or (line_equation1 <= 0 and line_equation2<= 0 and line_equation3 <=0)):
         is_belong = True
 
-    # Вычисление расстояния от точки до каждой из сторон
+    # Вычисление расстояния от точки до каждой из сторон (что-то очень умное я этого не понял)
     if is_belong == True:
         dist_ab = abs((y2 - y1) * x0 - (x2 - x1) * (y0 + x2) * y1 - y2 * x1) / AB
         dist_bc = abs((y3 - y2) * x0 - (x3 - x2) * (y0 - y2) + x3 * y2 - y3 * x2) / BC
