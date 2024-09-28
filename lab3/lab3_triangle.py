@@ -71,11 +71,13 @@ if AC - (AB + BC) < EXP and AB - (AC + BC) < EXP and BC - (AB + AC) < EXP:
         is_belong = True
 
     # Вычисление расстояния от точки до каждой из сторон  (очень умная схема которую мне не обьяснили)
-    if is_belong == True:
+    if is_belong:
         dist_ab = abs((y2 - y1) * x0 - (x2 - x1) * (y0 + x2) * y1 - y2 * x1) / AB
         dist_bc = abs((y3 - y2) * x0 - (x3 - x2) * (y0 - y2) + x3 * y2 - y3 * x2) / BC
         dist_ac = abs((y1 - y3) * x0 - (x1 - x3) * (y0 - y3) + x1 * y3 - y1 * x3) / AC
         max_dist = max(dist_ab, dist_bc, dist_ac)
+else:
+    print("Треугольник не существует")
 
 #Вывод
 if is_real:
