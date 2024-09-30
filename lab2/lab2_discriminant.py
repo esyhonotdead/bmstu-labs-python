@@ -10,7 +10,7 @@ from math import sqrt, pow
 # Получаем коофиценты уравнения
 a = float(input("Введите значение a: "))
 b = float(input("Введите значение b: "))
-c = float(input("Введите значение c: "))    
+c = float(input("Введите значение c: "))
 
 # Решение уравнения
 if a == 0:
@@ -20,9 +20,9 @@ if a == 0:
         else:
             print("Нет корней")
     else:
-        x = -c/b
+        x = -c / b
         print(f"Уравнение имеет 1 корень: x={x}")
-            
+
 else:
     discriminant = pow(b, 2) - 4 * a * c
     if discriminant > 0:

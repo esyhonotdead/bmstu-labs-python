@@ -17,18 +17,18 @@
 from math import sqrt
 
 # Погрешность дробный чисел
-EXP = 10**(-8)
+EXP = 10 ** (-8)
 
 # Ввод координат точек
-x1, y1 = int(input("Введите точку x1: ")), int(input("Введите точку y1: ")) #A
-x2, y2 = int(input("Введите точку x2: ")), int(input("Введите точку y2: ")) #B
-x3, y3 = int(input("Введите точку x3: ")), int(input("Введите точку y3: ")) #C
+x1, y1 = int(input("Введите точку x1: ")), int(input("Введите точку y1: "))  # A
+x2, y2 = int(input("Введите точку x2: ")), int(input("Введите точку y2: "))  # B
+x3, y3 = int(input("Введите точку x3: ")), int(input("Введите точку y3: "))  # C
 
 # Вычисление сторон треугольника
-AB = sqrt((x2-x1)**2 + (y2-y1)**2) #AB
-BC = sqrt((x3-x2)**2 + (y3-y2)**2) #BC
-AC = sqrt((x3-x1)**2 + (y3-y1)**2) #AС
-min_side = min(AB,BC,AC) 
+AB = sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)  # AB
+BC = sqrt((x3 - x2) ** 2 + (y3 - y2) ** 2)  # BC
+AC = sqrt((x3 - x1) ** 2 + (y3 - y1) ** 2)  # AС
+min_side = min(AB, BC, AC)
 
 
 # Проверка на сущ-е треугольника
@@ -37,11 +37,16 @@ if AC - (AB + BC) < EXP and AB - (AC + BC) < EXP and BC - (AB + AC) < EXP:
     is_real = True
 
     # Находим площадь треугольника
-    half_perimeter = (AB + BC + AC)/2
-    triangle_area = sqrt(half_perimeter*(half_perimeter-AB)*(half_perimeter-BC)*(half_perimeter-AC)) # Формула Герона
+    half_perimeter = (AB + BC + AC) / 2
+    triangle_area = sqrt(
+        half_perimeter
+        * (half_perimeter - AB)
+        * (half_perimeter - BC)
+        * (half_perimeter - AC)
+    )  # Формула Герона
 
     # Нахождение наименьшей высоты
-    height_A = (2 * triangle_area) / BC 
+    height_A = (2 * triangle_area) / BC
     height_B = (2 * triangle_area) / AC
     height_C = (2 * triangle_area) / AB
     if min_side == AB:
@@ -53,7 +58,11 @@ if AC - (AB + BC) < EXP and AB - (AC + BC) < EXP and BC - (AB + AC) < EXP:
 
     # Определяем является ли треугольник прямоугольным
     is_sqare = False
-    if abs(AB**2 - (BC**2 + AC**2)) < EXP or abs(BC**2 - (AC**2 + AB**2)) < EXP or abs(AC**2 - (AB**2 + BC**2)) < EXP:
+    if (
+        abs(AB**2 - (BC**2 + AC**2)) < EXP
+        or abs(BC**2 - (AC**2 + AB**2)) < EXP
+        or abs(AC**2 - (AB**2 + BC**2)) < EXP
+    ):
         is_sqare = True
 
     # Ввод точки
@@ -67,7 +76,9 @@ if AC - (AB + BC) < EXP and AB - (AC + BC) < EXP and BC - (AB + AC) < EXP:
     line_equation3 = (x3 - x0) * (y1 - y3) - (x1 - x3) * (y3 - y0)
 
     # Сравнание в 1 случае или лежит на стороне или за треугольнком, в 2 случае или в внутри или лежит на стороне
-    if ((line_equation1 >= 0 and line_equation2 >= 0 and line_equation3 >= line_equation3) or (line_equation1 <= 0 and line_equation2<= 0 and line_equation3 <=0)):
+    if (
+        line_equation1 >= 0 and line_equation2 >= 0 and line_equation3 >= line_equation3
+    ) or (line_equation1 <= 0 and line_equation2 <= 0 and line_equation3 <= 0):
         is_belong = True
 
     # Вычисление расстояния от точки до каждой из сторон  (очень умная схема которую мне не обьяснили)
@@ -79,7 +90,7 @@ if AC - (AB + BC) < EXP and AB - (AC + BC) < EXP and BC - (AB + AC) < EXP:
 else:
     print("Треугольник не существует")
 
-#Вывод
+# Вывод
 if is_real:
     print("-------------------------------------------")
     print(f"Стороны AB={round(AB, 4)}")
