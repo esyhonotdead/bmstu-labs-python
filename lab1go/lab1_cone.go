@@ -16,10 +16,10 @@ func main() {
 	var H float64
 
 	// Ввод параметров конуса
-	fmt.Print(("Введите радиус окружности в основании: "))
+	fmt.Print("Введите радиус окружности в основании: ")
 	fmt.Scan(&R)
 
-	fmt.Print(("Введите высоту конуса: "))
+	fmt.Print("Введите высоту конуса: ")
 	fmt.Scan(&H)
 
 	// Проверка на введенные значения
@@ -33,7 +33,7 @@ func main() {
 		circleArea := math.Pi * math.Pow(R, 2)
 		latSurfaceArea := math.Pi * R * L
 		fullSurfaceArea := circleArea + latSurfaceArea
-		coneVolume := (circleArea + H) / 3
+		coneVolume := (circleArea + H) * 3
 
 		// Вывод
 		fmt.Printf("Плозадь полной поверхности конуса: %.5f \n", fullSurfaceArea)
