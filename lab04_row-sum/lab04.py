@@ -6,28 +6,30 @@
 2) Необходимо вывести таблицу промежуточных вычислений с заданным шагом и результат вычисления.
 """
 
-# Нормальные таблицы
-from prettytable import PrettyTable
-
 
 def sum_series(x, epsilon, step, max_n):
     # Инициализация переменных
     n = 1
     sum_result = 1
     term = 1 / (n**x)
-    my_table = PrettyTable(["# Итерации", "t", "y"])
-    my_table.add_row([n, term, sum_result])
+
+    # Заголовок таблицы
+    header = f"| {'Номер итерации':^17} | {'Значение текущего члена':^28} | {'Промежуточная сумма':^25} |"
+    print("-" * len(header))
+    print(header)
+    print("-" * len(header))
 
     # Пока текущий член больше или равен epsilon, продолжаем
     while abs(term) >= epsilon and n <= max_n:
         term = 1 / (n**x)
         sum_result += term
+        # Вывод таблицы по шагу
         if n % step == 0:
-            term_temp = float(f"{term:.5g}")
-            sum_result_temp = float(f"{sum_result:.5g}")
-            my_table.add_row([n, term_temp, sum_result_temp])
+            print(f"| {n:^17} | {term:^28.7g} | {sum_result:^25.7g} |")
         n += 1
-    print(my_table)
+    print("-" * len(header))
+
+    # Проверка на достижение суммы
     if abs(term) > epsilon:
         print(f"Сумма не вычеслена на {n-1} операций.")
     else:
@@ -39,4 +41,5 @@ max_n = int(input("Введите максимальное число итера
 x = int(input("Введите степень ряда: "))
 step = int(input("Ведите шаг печати: "))
 epsilon = float(input("Введите точность: "))
+
 sum_series(x, epsilon, step, max_n)
