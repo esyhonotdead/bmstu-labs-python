@@ -41,3 +41,5 @@ def result_graph():
 
 
 result_table()
+
+

@@ -31,7 +31,7 @@ def sum_series(x, epsilon, step, max_n):
 
     # Проверка на достижение суммы
     if abs(term) > epsilon:
-        print(f"Сумма не вычеслена на {n-1} операций.")
+        print(f"Сумма не вычислена на {n-1} операций.")
     else:
         print(f"Сумма бесконечного ряда {sum_result:.5g}, вычислена за {n-1} итераций.")
 
