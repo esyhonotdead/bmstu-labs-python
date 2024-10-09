@@ -14,9 +14,7 @@ while True:
     x_end = int(input("Введите конечное значение x: "))
     step = int(input("Введите шаг: "))
     if x_start <= 0 and x_end < 0 and step < 0:
-        print(
-            "Пожалуйста, введите корректные значения (x_start > 0, x_end > 0, step > 0)."
-        )
+        print("Пожалуйста, введите корректные значения.")
         continue
     else:
         break
@@ -36,7 +34,7 @@ for x in range(x_start, x_end + 1, step):
 
 print("-" * len(header))
 
-# минимального и максимальное значения функции y3
+# минимальное значения функции y3
 y3_min = y3 = (
     math.pow(x_start, 2)
     - 4 * x_start
@@ -44,26 +42,15 @@ y3_min = y3 = (
     - 3 * math.pow(x_start, 2)
     + 1
 ) / 10
-x_min = x_start
 
 # максимальное значение y3
-for x in range(x_start, x_end + 1, step):
-    y1 = math.pow(x, 2) - 4 * x
-    y2 = math.pow(x, 3) - 3 * math.pow(x, 2) + 1
-    y3 = (y1 + y2) / 10
-
-    if y3 < y3_min:
-        y3_min = y3
-        x_min = x
-
 y3_max = (
     math.pow(x_end, 2) - 4 * x_end + math.pow(x_end, 3) - 3 * math.pow(x_end, 2) + 1
 ) / 10
 
-print(f"Минимальное значение y3 = {y3_min}, при x = {x_min}.")
+print(f"Минимальное значение y3 = {y3_min}, при x = {x_start}.")
 print(f"Максимальное значение y3 = {y3_max}, при x = {x_end}.")
-
-print("")
+print(" ")
 
 # засечеки
 while True:
@@ -73,7 +60,7 @@ while True:
     else:
         print("Пожалуйста, введите значение от 4 до 8.")
 
-# рафика
+# график
 width = 80  # ширина графика
 scale_y = (y3_max - y3_min) / (width - 1)  # масштабирование по оси Y
 
