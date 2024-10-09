@@ -8,38 +8,29 @@
 
 import math
 
+# ввод занчений
+while True:
+    x_init = int(input("x нач: "))
+    x_end = int(input("x конеч: "))
+    step = int(input("шаг: "))
+    if x_init <= 0 and x_end < 0 and step < 0:
+        continue
+    else:
+        break
 
-def result_table():
-    """
-    Функция рисует таблицу
-    """
-    # Заголовок таблицы
-    header = f"| {'Аргумент':^10} | {'Функция #1':^15} | {'Функция #2':^15} | {'Функция #3':^15} |"
-    print("-" * len(header))
-    print(header)
-    print("-" * len(header))
-    # Смешное вычисление
-    for x in [x / 100 for x in range(0, 105, 5)]:
-        func_1 = math.pow(2, x) - 4 * x
-        func_2 = math.pow(x, 3) - 3 * math.pow(x, 2) + 1
-        func_3 = (func_1 + func_2) / 10
-        print(f"| {x:^10} | {func_1:^15.5g} | {func_2:^15.5g} | {func_3:^15.5g} |")
-    print("-" * len(header))
+# таблица
+header = f"| {'Аргумент':^10} | {'Функция #1':^15} | {'Функция #2':^15} | {'Функция #3':^15} |"
+print("-" * len(header))
+print(header)
+print("-" * len(header))
 
-
-def result_graph():
-    """
-    График функции который я уже ненавижу
-    """
-    # Уже знаете
-    for x in [x / 100 for x in range(0, 105, 5)]:
-        func_1 = math.pow(2, x) - 4 * x
-        func_2 = math.pow(x, 3) - 3 * math.pow(x, 2) + 1
-        func_3 = (func_1 + func_2) / 10
-    # TODO
-    # Второе задание заставит плакать любого кодера
+for x in range(x_init, x_end, step):
+    y1 = math.pow(x, 2) - 4 * x
+    y2 = math.pow(x, 3) - 3 * math.pow(x, 2) + 1
+    y3 = (y1 + y2) / 10
+    print(f"| {x:^10} | {y1:^15.5g} | {y2:^15.5g} | {y3:^15.5g} |")
 
 
-result_table()
+print("-" * len(header))
 
-
+# график
