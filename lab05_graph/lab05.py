@@ -36,7 +36,7 @@ for i in range(x_count + 1):
     y1 = math.pow(x, 2) - 4 * x  # Функция #1
     y2 = math.pow(x, 3) - 3 * math.pow(x, 2) + 1  # Функция #2
     y3 = (y1 + y2) / 10  # Функция #3
-    print(f"| {x:^10} | {y1:^15.5g} | {y2:^15.5g} | {y3:^15.5g} |")
+    print(f"| {x:^10g} | {y1:^15.3g} | {y2:^15.3g} | {y3:^15.3g} |")
 
 print("-" * len(header))
 
@@ -55,38 +55,46 @@ y3_max = (
 ) / 10
 
 # доп. задание
-print(" ")
+print("")
+print("------------------------")
 print(f"Минимальное значение y3 = {y3_min}, при x = {x_start}.")
 print(f"Максимальное значение y3 = {y3_max}, при x = {x_end}.")
-print(" ")
+print("------------------------")
+print("")
 
 # засечеки
 while True:
-    width = int(input("Введите ширину графика: "))  # ширина графика
     num_ticks = int(input("Введите количество засечек на оси ординат (от 4 до 8): "))
-    if 4 <= num_ticks <= 8 and width > 0:
+    print("")
+    if 4 <= num_ticks <= 8:
         break
     else:
-        print(
-            "Пожалуйста, введите значение от 4 до 8 или положительное значение ширины."
-        )
+        print("Пожалуйста, введите значение от 4 до 8.")
 
 # график
+width = 150  # ширина графика
 scale_y = (y3_max - y3_min) / (width - 1)  # масштабирование по оси Y
 
 # линейка для оси ординат
 tick_step = (y3_max - y3_min) / (num_ticks - 1)
-print(" " * 10, end="")
+print(" " * 13, end="|")
+space = width / num_ticks
+print(int(space), end="")
+
 for i in range(num_ticks):
     tick_value = y3_min + i * tick_step
-    print(f"{tick_value:>8.2f}", end=" ")
-print()
+    print(
+        f"{tick_value:.3g}" + "_" * (int(space) - (len(f"{tick_value:.3g}")) + 4),
+        end="",
+    )
+
+print("|")
 
 # построение графика
 for i in range(x_count + 1):
     x = i * step + x_start
     # x слева
-    print(f"{x:>8} |", end="")
+    print(f"{x:<13.3g}|", end="")
 
     # значения y3
     y1 = math.pow(x, 2) - 4 * x
