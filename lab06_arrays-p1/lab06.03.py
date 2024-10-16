@@ -21,7 +21,7 @@ print(f"Ваш массив: {my_list}")
 k = 0
 num = int(input("K: "))
 
-# вычисоение экстремума
+# вычисление экстремума
 for i in range(1, len(my_list) - 1):
     if (my_list[i] > my_list[i + 1] and my_list[i] > my_list[len(my_list) - 1]) or (
         my_list[i] < my_list[i + 1] and my_list[i] < my_list[len(my_list) - 1]
