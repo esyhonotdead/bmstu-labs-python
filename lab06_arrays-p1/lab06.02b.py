@@ -16,17 +16,17 @@ while True:
         break
 
 # заполняем массив
-my_list: list = [random.randint(-10, 10) for n in range(max_el)]
-print(f"Ваш массив: {my_list}")
+arr: list = [random.randint(-10, 10) for n in range(max_el)]
+print(f"Ваш массив: {arr}")
 
 # значения пользователя
 ind = int(input("Введите индекс элемента который надо удалить: "))
 
 # 1 этап
-for i in range(ind, len(my_list) - 1):
-    my_list[i] = my_list[i + 1]
+for i in range(ind, len(arr) - 1):
+    arr[i] = arr[i + 1]
 
 # 2 этап
-my_list = my_list[:-1]
+arr = arr[:-1]
 
-print(f"Ваш новый массив: {my_list}")
+print(f"Ваш новый массив: {arr}")

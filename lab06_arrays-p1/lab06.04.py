@@ -8,7 +8,7 @@ import math
 
 # создаем массив чисел
 stop = ""
-my_list: list = []
+arr: list = []
 print("Для того что-бы остановить сделайте пустой ввод.")
 while True:
     num = input("Введите числа: ")
@@ -16,17 +16,19 @@ while True:
         print("Вы остановили ввод.")
         break
     else:
-        my_list.append(int(num))
-print(f"Ваш список: {my_list}")
+        arr.append(int(num))
+print(f"Ваш список: {arr}")
 
 current_length = 0
 prev_even = float(-math.inf)
+sequence: list = []
 
 # расчет
-for i in my_list:
+for i in arr:
     if i % 2 == 0:
         if i > prev_even:
             current_length += 1
+            sequence.append(i)
         else:
             current_length = 1
         prev_even = i
@@ -34,3 +36,6 @@ for i in my_list:
         current_length = 0
 
 print(f"Максимальная длина: {current_length}")
+print("Ваша последовательность: ", end="")
+for i in sequence:
+    print(i, end=",")

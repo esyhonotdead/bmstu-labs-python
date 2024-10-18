@@ -16,21 +16,21 @@ while True:
         break
 
 # заполняем массив
-my_list: list = [random.randint(-10, 10) for n in range(max_el)]
-print(f"Ваш массив: {my_list}")
+arr: list = [random.randint(-10, 10) for n in range(max_el)]
+print(f"Ваш массив: {arr}")
 
 # значения пользователя
 num = int(input("Введите число: "))
 ind = int(input("Введите индекс: "))
 
 # 1 этап
-my_list.append(None)
+arr.append(None)
 
 # 2 этап
-for i in range(len(my_list) - 2, ind - 1, -1):
-    my_list[i + 1] = my_list[i]
+for i in range(len(arr) - 2, ind - 1, -1):
+    arr[i + 1] = arr[i]
 
 # 3 этап
-my_list[i] = num
+arr[i] = num
 
-print(f"Ваш новый массив: {my_list}")
+print(f"Ваш новый массив: {arr}")

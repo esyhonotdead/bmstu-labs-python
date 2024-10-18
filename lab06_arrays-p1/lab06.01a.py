@@ -16,14 +16,14 @@ while True:
         break
 
 # заполняем массив
-my_list: list = [random.randint(-10, 10) for n in range(max_el)]
-print(f"Ваш массив: {my_list}")
+arr: list = [random.randint(-10, 10) for n in range(max_el)]
+print(f"Ваш массив: {arr}")
 
 # значения пользователя
 num = int(input("Введите число: "))
 i = int(input("Введите индекс: "))
 
 # добовляем элемент в массив
-my_list.insert(i, num)
+arr.insert(i, num)
 
-print(f"Ваш новый массив: {my_list}")
+print(f"Ваш новый массив: {arr}")

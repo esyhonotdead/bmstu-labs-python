@@ -36,6 +36,7 @@ if last_zero_index != -1 and max_negative_index != -1:
     arr[last_zero_index], arr[max_negative_index] = (
         arr[max_negative_index],
         arr[last_zero_index],
+        print(f"Ваш новый список: {arr}"),
     )
-
-print(f"Ваш новый список: {arr}")
+else:
+    print("Нечего менять")

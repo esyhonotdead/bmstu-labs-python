@@ -16,13 +16,13 @@ while True:
         break
 
 # заполняем массив
-my_list: list = [random.randint(-10, 10) for n in range(max_el)]
-print(f"Ваш массив: {my_list}")
+arr: list = [random.randint(-10, 10) for n in range(max_el)]
+print(f"Ваш массив: {arr}")
 
 # значения пользователя
 i = int(input("Введите индекс элемента который надо удалить: "))
 
 # удаление элемента из массива
-print(f"Удаленный элемент: {my_list[i]}")
-my_list.pop(i)
-print(f"Ваш новый массив: {my_list}")
+print(f"Удаленный элемент: {arr[i]}")
+arr.pop(i)
+print(f"Ваш новый массив: {arr}")

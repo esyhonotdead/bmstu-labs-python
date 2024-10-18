@@ -16,19 +16,19 @@ while True:
         break
 
 # заполняем массив
-my_list: list = [random.randint(-10, 10) for n in range(max_el)]
-print(f"Ваш массив: {my_list}")
+arr: list = [random.randint(-10, 10) for n in range(max_el)]
+print(f"Ваш массив: {arr}")
 k = 0
 num = int(input("K: "))
 
 # вычисоение экстремума
-for i in range(1, len(my_list) - 1):
-    if (my_list[i] > my_list[i + 1] and my_list[i] > my_list[len(my_list) - 1]) or (
-        my_list[i] < my_list[i + 1] and my_list[i] < my_list[len(my_list) - 1]
+for i in range(1, len(arr) - 1):
+    if (arr[i] > arr[i + 1] and arr[i] > arr[len(arr) - 1]) or (
+        arr[i] < arr[i + 1] and arr[i] < arr[len(arr) - 1]
     ):
         k += 1  # счетчик
         if k == num:
-            print(f"Экстремум: {my_list[i]}")
+            print(f"Экстремум: {arr[i]}")
             break
 else:
     print("Экстремумов не найдено")
