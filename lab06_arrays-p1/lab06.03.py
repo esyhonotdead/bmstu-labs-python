@@ -23,8 +23,8 @@ num = int(input("K: "))
 
 # вычисоение экстремума
 for i in range(1, len(arr) - 1):
-    if (arr[i] > arr[i + 1] and arr[i] > arr[len(arr) - 1]) or (
-        arr[i] < arr[i + 1] and arr[i] < arr[len(arr) - 1]
+    if (arr[i] > arr[i - 1] and arr[i] > arr[i + 1]) or (
+        arr[i] < arr[i - 1] and arr[i] < arr[i + 1]
     ):
         k += 1  # счетчик
         if k == num:

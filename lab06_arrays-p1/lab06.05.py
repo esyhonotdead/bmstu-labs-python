@@ -22,6 +22,7 @@ last_zero_index = -1
 for i in range(len(arr)):
     if arr[i] == 0:
         last_zero_index = i
+print(last_zero_index)
 
 # индекс минимального числа
 max_negative_index = -1
@@ -30,13 +31,14 @@ for i in range(len(arr)):
     if arr[i] < 0 and arr[i] > max_negative:
         max_negative = arr[i]
         max_negative_index = i
+print(max_negative_index)
 
 # меняем места элементы
 if last_zero_index != -1 and max_negative_index != -1:
     arr[last_zero_index], arr[max_negative_index] = (
         arr[max_negative_index],
         arr[last_zero_index],
-        print(f"Ваш новый список: {arr}"),
     )
+    (print(f"Ваш новый список: {arr}"),)
 else:
     print("Нечего менять")

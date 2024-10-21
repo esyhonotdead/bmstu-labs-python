@@ -19,23 +19,20 @@ while True:
         arr.append(int(num))
 print(f"Ваш список: {arr}")
 
-current_length = 0
+max_sequence = []
+current_length = []
 prev_even = float(-math.inf)
-sequence: list = []
 
 # расчет
-for i in arr:
-    if i % 2 == 0:
-        if i > prev_even:
-            current_length += 1
-            sequence.append(i)
+for num in arr:
+    if num % 2 == 0:
+        if not current_length or num > current_length[-1]:
+            current_length.append(num)
         else:
-            current_length = 1
-        prev_even = i
+            current_length = [num]
     else:
-        current_length = 0
+        current_length = []
+    if len(current_length) > len(max_sequence):
+        max_sequence = current_length[:]
 
-print(f"Максимальная длина: {current_length}")
-print("Ваша последовательность: ", end="")
-for i in sequence:
-    print(i, end=",")
+print(f"Максимальная длина: {max_sequence}")
