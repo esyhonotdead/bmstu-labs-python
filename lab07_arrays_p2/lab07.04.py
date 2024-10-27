@@ -50,9 +50,8 @@ else:
                 new_string += current_string[index]
                 index += 1
 
-        # Заменяем старую строку на новую в списке
+        # заменяем строку на новую
         arr[i] = new_string
-    # Выводим измененный список
     print("\nИзмененный список строк:")
     for i in arr:
         print(i, end=" ")
