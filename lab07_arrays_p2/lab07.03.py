@@ -14,20 +14,22 @@ for i in range(n):
     element = input(f"Введите элемент {i + 1}: ")
     arr.append(element)
 
-vowels = "aeyuioe"
-vowels_count = 0
-vowels_coun_previous = float("-inf")
+vowels = "aeyuoi"
+vowels_count_previous = float("-inf")
+result_word: str
 
 for i in range(n):
+    vowels_count = 0
     word = arr[i]
     for char in word:
         if char.lower() in vowels:  # подгоняем под стандарт
             vowels_count += 1
-    if vowels_count > vowels_coun_previous:
-        # конечный вывод
-        vowels_count = vowels_coun_previous
-        word_result = word
+    if vowels_count >= vowels_count_previous:
+        vowels_count_previous = vowels_count
+        result_word = arr[i]
+    else:
+        continue
 
 print(
-    f"Эелемент с самым большим количеством гласных {word_result}, с {vowels_count} символов."
+    f"Элемент с наибольшем числом гласных букв: {result_word}, с числом: {vowels_count_previous}"
 )

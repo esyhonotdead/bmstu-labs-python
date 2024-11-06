@@ -19,12 +19,11 @@ even_index = 0
 
 i = 0
 while i < len(arr):
-    if arr[i] % 2 == 0:
+    if abs(arr[i]) % 2 == 0:
         # сдвигаем чётные элементы влево
         arr[even_index] = arr[i]
         even_index += 1
     i += 1
 
-arr = arr[:even_index]
 # вывод изменённого списка
-print(arr)
+print(arr[even_index:])

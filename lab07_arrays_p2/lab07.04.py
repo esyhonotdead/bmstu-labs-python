@@ -29,25 +29,27 @@ else:
         print(i, end=" ")
 
     for i in range(len(arr)):
-        current_string = arr[i]
+        arr_string = arr[i]
         new_string = ""
         index = 0
 
-        while index < len(current_string):
+        while index < len(arr_string):
             if (
-                index < len(current_string) - 1
-                and current_string[index] in digits
-                and current_string[index + 1] in digits
+                index < len(arr_string) - 1
+                and arr_string[index] in digits
+                and arr_string[index + 1] in digits
             ):
-                digit1 = int(current_string[index])
-                digit2 = int(current_string[index + 1])
+                # замена str на int
+                digit1 = int(arr_string[index])
+                digit2 = int(arr_string[index + 1])
                 sum_last_digit = (digit1 + digit2) % 10
 
+                # добавляем и двигаем
                 new_string += str(sum_last_digit)
                 index += 2
 
             else:
-                new_string += current_string[index]
+                new_string += arr_string[index]
                 index += 1
 
         # заменяем строку на новую
