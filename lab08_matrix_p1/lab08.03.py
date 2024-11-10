@@ -16,6 +16,11 @@ for row in range(size):
         row[i] = float(row[i])
     matrix.append(row)
 
+print("\n Введенная матрица: ")
+for i, lenght in enumerate(matrix):
+    string = "".join([f"{e:^10}" for e in lenght])
+    print(f"matrix[{i}] = {string}")
+
 for row in range(len(matrix)):
     for el in range(row, len(matrix)):
         matrix[row][el], matrix[el][row] = matrix[el][row], matrix[row][el]

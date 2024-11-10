@@ -18,25 +18,32 @@ for row in range(size):
         row[i] = float(row[i])
     matrix.append(row)
 
-print(f"Ваша матрица: {matrix}")
+print("\n Введенная матрица: ")
+for i, lenght in enumerate(matrix):
+    string = "".join([f"{e:^10}" for e in lenght])
+    print(f"matrix[{i}] = {string}")
+
 
 min_count = math.inf
 max_count = -1
 
 counter = 0
 el = 0
-for row in matrix:
-    while el > len(row):
-        if row[el - 1] < 0:
+
+for row in range(len(matrix)):
+    for el in matrix[row]:
+        if el >= 0:
             counter += 1
-        el += 1
     if counter > max_count:
         max_count = counter
-        index_max = matrix.index(row)
+        index_max = row
     if counter < min_count:
         min_count = counter
-        index_min = matrix.index(row)
+        index_min = row
 
 matrix[index_max], matrix[index_min] = matrix[index_min], matrix[index_max]
 
-print(f"Изменённая матрица: {matrix}")
+print("\n Измененная матрица: ")
+for i, lenght in enumerate(matrix):
+    string = "".join([f"{e:^10}" for e in lenght])
+    print(f"matrix[{i}] = {string}")

@@ -4,7 +4,7 @@
 Задание: Найти максимальное значение в квадратной матрице над главной диагональю и минимальное - под побочной диагональю.
 """
 
-size = int(input("Введите размерность матрицы: "))
+size = int(input("Введите количество строк: "))
 while size <= 0:
     print("Ошибка: введите положительное целое число.")
     size = int(input("Введите размерность матрицы: "))
@@ -16,6 +16,12 @@ for row in range(size):
     for row in range(len(row)):
         row[row] = float(row[row])
     matrix.append(row)
+
+print("\n Введенная матрица: ")
+for i, lenght in enumerate(matrix):
+    string = "".join([f"{e:^10}" for e in lenght])
+    print(f"matrix[{i}] = {string}")
+
 
 max_num = 0
 min_num = 10**-8

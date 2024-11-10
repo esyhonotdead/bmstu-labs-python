@@ -4,7 +4,7 @@
 Задание: Переставить местами столбцы с максимальной и минимальной суммой элементов.
 """
 
-size = int(input("Введите размерность матрицы: "))
+size = int(input("Введите количество строк: "))
 while size <= 0:
     print("Ошибка: введите положительное целое число.")
     size = int(input("Введите размерность матрицы: "))
@@ -15,6 +15,11 @@ for row in range(size):
     for i in range(len(row)):
         row[i] = float(row[i])
     matrix.append(row)
+
+print("\n Введенная матрица: ")
+for i, lenght in enumerate(matrix):
+    string = "".join([f"{e:^10}" for e in lenght])
+    print(f"matrix[{i}] = {string}")
 
 max_sum = 0
 min_sum = 10**6
@@ -41,5 +46,7 @@ for i in range(size):
         matrix[i][index_max],
     )
 
-
-print(f"Измененная матрица: {matrix}")
+print("\n Измененная матрица: ")
+for i, lenght in enumerate(matrix):
+    string = "".join([f"{e:^10}" for e in lenght])
+    print(f"matrix[{i}] = {string}")

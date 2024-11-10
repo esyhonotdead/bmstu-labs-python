@@ -4,7 +4,7 @@
 Задание: Выполнить транспонирование квадратной матрицы.
 """
 
-size = int(input("Введите размерность матрицы: "))
+size = int(input("Введите количество строк: "))
 while size <= 0:
     print("Ошибка: введите положительное целое число.")
     size = int(input("Введите размерность матрицы: "))
@@ -17,8 +17,17 @@ for row in range(size):
         row[i] = float(row[i])
     matrix.append(row)
 
+print("\n Введенная матрица: ")
+for i, lenght in enumerate(matrix):
+    string = "".join([f"{e:^10}" for e in lenght])
+    print(f"matrix[{i}] = {string}")
+
+
 for row in range(len(matrix)):
     for el in range(row, len(matrix)):
         matrix[row][el], matrix[el][row] = matrix[el][row], matrix[row][el]
 
-print(f"Транспонированная матрица {matrix}")
+print("\n Измененная матрциа: ")
+for i, lenght in enumerate(matrix):
+    string = "".join([f"{e:^10}" for e in lenght])
+    print(f"matrix[{i}] = {string}")

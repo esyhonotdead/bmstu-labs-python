@@ -4,7 +4,7 @@
 Задание: Найти строку, имеющую наибольшее количество подряд идущих одинаковых элементов.
 """
 
-size = int(input("Введите размерность матрицы: "))
+size = int(input("Введите количество строк: "))
 while size <= 0:
     print("Ошибка: введите положительное целое число.")
     size = int(input("Введите размерность матрицы: "))
@@ -14,19 +14,29 @@ for row in range(size):
     row = input("Введите элементы через пробел: ").split(" ")
     matrix.append(row)
 
-print(f"Ваша матрица: {matrix}")
+print("\n Введенная матрица: ")
+for i, lenght in enumerate(matrix):
+    string = "".join([f"{e:^10}" for e in lenght])
+    print(f"matrix[{i}] = {string}")
 
-count = 0
-prev_count = -1
+max_repeats = 0
+max_row_index = -1
 
-for row in matrix:
-    for el in range(1, len(row)):
-        if row[el - 1] == row[el]:
-            count += 1
+for i, row in enumerate(matrix):
+    current_max = 1
+    current_count = 1
+    for j in range(1, len(row)):
+        if row[j] == row[j - 1]:
+            current_count += 1
         else:
-            count = 0
-    if count >= prev_count:
-        prev_count = count
-        row_index = matrix.index(row)
+            current_max = max(current_max, current_count)
+            current_count = 1
+    current_max = max(current_max, current_count)
+    if current_max > max_repeats:
+        max_repeats = current_max
+        max_row_index = i
 
-print(f"Строка с наибольшим количеством повторяющихся символов: {matrix[row_index]}")
+
+print(
+    f"Строка с наибольшим количеством повторяющихся символов: {matrix[max_row_index]}"
+)
