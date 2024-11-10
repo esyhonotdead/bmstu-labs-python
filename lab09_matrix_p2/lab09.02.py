@@ -6,12 +6,10 @@
 стрелке, затем на 90 градусов против часовой стрелки.
 Вывести исходную, промежуточную и итоговую матрицы.
 Дополнительных матриц и массивов не вводить. Транспонирование не применять.
-
 """
 
 
 def matrix_input(lenght: int) -> list:
-    """Ввод квадратной матрицы"""
     matrix = []
     for i in range(lenght):
         el = list(map(int, input(f"Введите {i + 1} строку матрицы: ").split()))
@@ -20,12 +18,9 @@ def matrix_input(lenght: int) -> list:
 
 
 def matrix_output(matrix: list) -> None:
-    """Вывод матрицы"""
-    output_string = ""
-    for i, string in enumerate(matrix):
-        output = "".join([f"{s:^6.6g}" for s in string])
-        output_string += f"Строка {i + 1} = {output}\n"
-    print(output_string)
+    for el, row in enumerate(matrix):
+        string = "".join([f"{el:^10}" for el in row])
+        print(f"Строка {el+1}: {string}")
 
 
 def rotate_right(matrix: list):
