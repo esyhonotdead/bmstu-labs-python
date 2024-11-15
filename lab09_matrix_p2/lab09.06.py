@@ -24,12 +24,12 @@ def matrix_output(matrix: list) -> None:
 
 def matrix_edit(matrix: list) -> list:
     vowels = ("A", "E", "U", "I", "O", "Y")
-    a_ord = 65
-    z_ord = 90
+    a_uni = 65
+    z_uni = 90
 
     for line in matrix:
         for index in range(len(line)):
-            if a_ord <= ord(line[index].upper()) <= z_ord:
+            if a_uni <= ord(line[index].upper()) <= z_uni:
                 if line[index].upper() in vowels:
                     line[index] = line[index].lower()
                 else:

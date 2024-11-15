@@ -33,7 +33,7 @@ def max_in_row(matrix: list, row_i: list) -> list:
 
 
 def row_average(row: list) -> int:
-    return lambda i, n: sum(i) / len(n)
+    return lambda row: sum(row) / len(row)
 
 
 def main():

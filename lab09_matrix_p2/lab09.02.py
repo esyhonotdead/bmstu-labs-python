@@ -23,12 +23,14 @@ def matrix_output(matrix: list) -> None:
         print(f"Строка {el+1}: {string}")
 
 
-def rotate_right(matrix: list):
-    return tuple(zip(*matrix[::-1]))
+def rotate_left(matrix):
+    rotated_matrix = [list(row) for row in zip(*matrix)][::-1]
+    return rotated_matrix
 
 
-def rotate_left(matrix: list):
-    return tuple(zip(*matrix))[::-1]
+def rotate_right(matrix):
+    rotated_matrix = [list(row)[::-1] for row in zip(*matrix)]
+    return rotated_matrix
 
 
 def main():
