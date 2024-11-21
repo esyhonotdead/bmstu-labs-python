@@ -8,10 +8,14 @@
 """
 
 
-def matrix_input(lenght: int) -> list:
+def matrix_input(length: int) -> list | None:
     matrix = []
-    for i in range(lenght):
+    for i in range(length):
         el = list(map(str, input(f"Введите {i + 1} строку матрицы: ").split()))
+        for i in el:
+            if len(i) != 1:
+                print("Введенный элеменет должен быть одиночным символом.")
+                return None
         matrix.append(el)
     return matrix
 
@@ -23,23 +27,25 @@ def matrix_output(matrix: list) -> None:
 
 
 def matrix_edit(matrix: list) -> list:
-    vowels = ("A", "E", "U", "I", "O", "Y")
+    vowels = ["A", "E", "U", "I", "O", "Y"]
     a_uni = 65
     z_uni = 90
 
     for line in matrix:
-        for index in range(len(line)):
-            if a_uni <= ord(line[index].upper()) <= z_uni:
-                if line[index].upper() in vowels:
-                    line[index] = line[index].lower()
+        for i in range(len(line)):
+            if a_uni <= ord(line[i].upper()) <= z_uni:
+                if line[i].upper() in vowels:
+                    line[i] = line[i].lower()
                 else:
-                    line[index] = line[index].upper()
+                    line[i] = line[i].upper()
     return matrix
 
 
 def main():
     n = int(input("Введите количество строк в матрице: "))
     matrix = matrix_input(n)
+    if matrix is None:
+        return 0
     print("Введенная матрица: ")
     matrix_output(matrix)
     print("Измененная матрица: ")

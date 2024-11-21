@@ -10,9 +10,9 @@
 """
 
 
-def matrix_input(lenght: int) -> list:
+def matrix_input(length: int) -> list:
     matrix = []
-    for i in range(lenght):
+    for i in range(length):
         el = list(map(float, input(f"Введите {i + 1} строку матрицы: ").split()))
         matrix.append(el)
     return matrix
@@ -33,16 +33,17 @@ def max_in_row(matrix: list, row_i: list) -> list:
 
 
 def row_average(row: list) -> int:
-    return lambda row: sum(row) / len(row)
+    num = sum(row) / len(row)
+    return num
 
 
 def main():
     n = int(input("Введите количество строк в матрице: "))
     matrix = matrix_input(n)
-    row_i = map(int, input("Введите номера строк: ").split(" "))
+    row_i = list(map(int, input("Введите номера строк: ").split(" ")))
     max_nums = max_in_row(matrix, row_i)
     matrix_output(matrix)
-    print(f"Строки поиска: {[row_i]}")
+    print(f"Строки поиска: {row_i}")
     print(f"Максимальные элементы в строках: {max_nums}")
     print(f"Среднеее арифметическое значение: {row_average(max_nums)}")
 

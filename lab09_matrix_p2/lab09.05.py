@@ -7,9 +7,9 @@
 """
 
 
-def matrix_input(lenght: int) -> list:
+def matrix_input(length: int) -> list:
     matrix = []
-    for i in range(lenght):
+    for i in range(length):
         el = list(map(float, input(f"Введите {i + 1} строку матрицы: ").split()))
         matrix.append(el)
     return matrix

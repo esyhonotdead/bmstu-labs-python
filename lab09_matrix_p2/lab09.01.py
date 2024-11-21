@@ -11,9 +11,9 @@
 from math import sqrt
 
 
-def list_input(lenght: int) -> list:
+def list_input(length: int) -> list:
     temp_list = []
-    for i in range(lenght):
+    for i in range(length):
         el = int(input(f"Введите {i+1} элемент массива: "))
         temp_list.append(el)
     return temp_list
@@ -51,9 +51,9 @@ def main():
     counter = 0
     n = int(input("Введите количество элементов в списках: "))
     print("Введите массив A.")
-    list_a = list_input(lenght=n)
+    list_a = list_input(length=n)
     print("Введите массив B.")
-    list_b = list_input(lenght=n)
+    list_b = list_input(length=n)
     matrix = create_matrix(list_a, list_b, n)
     matrix_squares = count_squares(matrix, counter)
     matrix_output(matrix, matrix_squares)

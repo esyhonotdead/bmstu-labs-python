@@ -9,9 +9,9 @@
 """
 
 
-def matrix_input(lenght: int) -> list:
+def matrix_input(length: int) -> list:
     matrix = []
-    for i in range(lenght):
+    for i in range(length):
         el = list(map(int, input(f"Введите {i + 1} строку матрицы: ").split()))
         matrix.append(el)
     return matrix
@@ -23,13 +23,19 @@ def matrix_output(matrix: list) -> None:
         print(f"Строка {el+1}: {string}")
 
 
-def rotate_left(matrix):
-    rotated_matrix = [list(row) for row in zip(*matrix)][::-1]
+def rotate_left(matrix: list, n: int) -> list:
+    rotated_matrix = [[0] * n for _ in range(n)]
+    for i in range(n):
+        for j in range(n):
+            rotated_matrix[n - j - 1][i] = matrix[i][j]
     return rotated_matrix
 
 
-def rotate_right(matrix):
-    rotated_matrix = [list(row)[::-1] for row in zip(*matrix)]
+def rotate_right(matrix: list, n: int) -> list:
+    rotated_matrix = [[0] * n for _ in range(n)]
+    for i in range(n):
+        for j in range(n):
+            rotated_matrix[j][n - i - 1] = matrix[i][j]
     return rotated_matrix
 
 
@@ -40,11 +46,11 @@ def main():
     print("Исходная матрица")
     matrix_output(matrix)
 
-    matrix = rotate_right(matrix)
+    matrix = rotate_right(matrix, n)
     print("Промежуточная матрица")
     matrix_output(matrix)
 
-    matrix = rotate_left(matrix)
+    matrix = rotate_left(matrix, n)
     print("Итоговая матрица")
     matrix_output(matrix)
 
