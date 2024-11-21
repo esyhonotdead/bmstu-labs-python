@@ -111,8 +111,8 @@ def find_n(func, acc):
 
 
 def main():
-    start = input_value("начало отрезка")
-    end = input_value("конец отрезка")
+    start = input_value("начало отрезка", is_int=False)
+    end = input_value("конец отрезка", is_int=False)
     n1 = input_value("N1 участков разбиения", is_int=True, divisible_by_2=True)
     n2 = input_value("N2 участков разбиения", is_int=True, divisible_by_2=True)
     print()
