@@ -100,7 +100,7 @@ def relative_error(abs_error, real):
 
 
 def find_n(func, acc):
-    n = 4
+    n = 2
     integral = func(n)
     while True:
         new_integral = func(n * 2)
@@ -108,8 +108,6 @@ def find_n(func, acc):
             return n * 2, new_integral
         integral = new_integral
         n *= 2
-        if n > 1e8:
-            return 0, 0
 
 
 def main():
