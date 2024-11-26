@@ -4,7 +4,7 @@
 Задание: Добавить элемент в заданное место списка (по индексу) алгоритмически.
 """
 
-import random
+import numpy as np
 
 # задаем размер массива
 while True:
@@ -16,7 +16,7 @@ while True:
         break
 
 # заполняем массив
-arr: list = [random.randint(-10, 10) for n in range(max_el)]
+arr: list = np.random.randint(-10, 10, size=20)
 print(f"Ваш массив: {arr}")
 
 # значения пользователя
