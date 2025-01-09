@@ -43,7 +43,7 @@ def per_table_format(value):
 
 
 def integral_function(x):
-    return math.pow(x, 2)
+    return 2 * math.pow(x, 2) + 1 / math.sqrt(math.log(x, 2))
 
 
 def primitive_function(x):
@@ -255,7 +255,7 @@ def main():
         print(
             f"Интеграл с заданной точностью вычисляется за {curr_n} разбиений и имеет значение {integral_value:.7g}"
         )
-    except UnboundLocalError:
+    except Exception:
         print("BRUH")
 
 
