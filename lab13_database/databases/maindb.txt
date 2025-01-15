@@ -1,4 +1,0 @@
-Anton;23;True;1.82
-Ivan;12;True;1.85
-Masha;25;False;1.64
-Daria;17;False;1.58
