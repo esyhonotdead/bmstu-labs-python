@@ -12,7 +12,7 @@ RECORD_SIZE = 4
 
 def remove_negatives(file_path: str):
     """
-    Побитово читаем строку записываем
+    Побитово читаем строку и записываем по условию
     """
     read_pointer = 0
     pos = 0

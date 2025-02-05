@@ -54,7 +54,7 @@ def add_line(filename: str, n: int):
 def main():
     for i in positions_to_delete[::-1]:
         add_line(file_path, i)
-
+    print("Обновлённый файл:", end=" ")
     with open(file_path, "rb") as file:
         num = file.read(4)
         while num:
